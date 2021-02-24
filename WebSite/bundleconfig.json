@@ -1,0 +1,12 @@
+[
+  {
+    "outputFileName": "wwwroot/js/scripts.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.min.js",
+      "wwwroot/js/browser.js",
+      "wwwroot/js/breakpoints.js",
+      "wwwroot/js/util.js",
+      "wwwroot/js/main.js"
+    ]
+  }
+]
