@@ -6,6 +6,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using WebSite.Service;
+using WebSite.Domain.Repositories.Abstract;
+using WebSite.Domain.Repositories.EntityFramework;
+using WebSite.Domain;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebSite
 {
@@ -17,6 +22,35 @@ namespace WebSite
         {
             //подключение конфиг из appsettings.json
             Configuration.Bind("Project", new Config());
+
+            //подключение нужный функционал приложения в качестве сервисов
+            services.AddTransient<ITextFieldsRepository, EFTextFieldRepository>();
+            services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
+            services.AddTransient<DataManager>();
+
+            //подключение контекст БД
+            services.AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString));
+
+            //Настраиваем identity систему
+            services.AddIdentity<IdentityUser, IdentityRole>(opts =>
+            {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            //Настраиваем authentication cookie
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "MySiteAuth";
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = "/account/login";
+                options.AccessDeniedPath = "/account/accessdenied";
+                options.SlidingExpiration = true;
+            });
 
             services.AddControllersWithViews()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
@@ -30,9 +64,14 @@ namespace WebSite
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
 
             app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseCookiePolicy();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
