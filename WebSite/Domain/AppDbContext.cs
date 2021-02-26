@@ -21,6 +21,7 @@ namespace WebSite.Domain
         {
             base.OnModelCreating(builder);
 
+            //роль админ создание
             builder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Id = "8af10569-b018-4fe7-a380-7d6a14c70b73",
@@ -28,6 +29,7 @@ namespace WebSite.Domain
                 NormalizedName="ADMIN"
             });
 
+            //создание пользователя админ
             builder.Entity<IdentityUser>().HasData(new IdentityUser
             {
                 Id = "3b2472e-4f66-49fa-a20f-e7685b9565d8",
@@ -40,6 +42,7 @@ namespace WebSite.Domain
                 SecurityStamp = string.Empty
             });
 
+            //присвоили юзеру администратору роль админ
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "8af10569-b018-4fe7-a380-7d6a14c70b73",
