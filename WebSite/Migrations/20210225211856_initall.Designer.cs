@@ -10,8 +10,8 @@ using WebSite.Domain;
 namespace WebSite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210225154429__initiallll")]
-    partial class _initiallll
+    [Migration("20210225211856_initall")]
+    partial class initall
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace WebSite.Migrations
                         new
                         {
                             Id = "8af10569-b018-4fe7-a380-7d6a14c70b73",
-                            ConcurrencyStamp = "f6b33703-43c7-4546-a298-cbbb890afa0f",
+                            ConcurrencyStamp = "d952f982-a203-4bc5-b2a2-00586f511018",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace WebSite.Migrations
                         {
                             Id = "3b2472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "14b61231-818d-4409-b29d-02918d504cc5",
+                            ConcurrencyStamp = "41d37aa5-89b4-4e28-a99e-727cee40fc83",
                             Email = "ny@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "NY@MAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECWm4G8EZo9npylMuUU+1WSSadoiNXyS92dlAE1glbWFEhhA7XKJbvUXV/7rVDBq1g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDx73OOao6vq1LAtmfx5oPBw1REZYkKTRHfyMBHikdHcU236lXnb61C79uWoO2M7Qw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -324,7 +324,7 @@ namespace WebSite.Migrations
                         {
                             Id = new Guid("63cd8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 2, 25, 15, 44, 29, 260, DateTimeKind.Utc).AddTicks(3955),
+                            DateAdded = new DateTime(2021, 2, 25, 21, 18, 56, 79, DateTimeKind.Utc).AddTicks(5730),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -332,7 +332,7 @@ namespace WebSite.Migrations
                         {
                             Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 2, 25, 15, 44, 29, 260, DateTimeKind.Utc).AddTicks(5859),
+                            DateAdded = new DateTime(2021, 2, 25, 21, 18, 56, 79, DateTimeKind.Utc).AddTicks(9083),
                             Text = "Содержание заполняется администратором",
                             Title = "Наш услуги"
                         },
@@ -340,7 +340,7 @@ namespace WebSite.Migrations
                         {
                             Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 2, 25, 15, 44, 29, 260, DateTimeKind.Utc).AddTicks(5908),
+                            DateAdded = new DateTime(2021, 2, 25, 21, 18, 56, 79, DateTimeKind.Utc).AddTicks(9149),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         });
