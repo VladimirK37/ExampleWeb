@@ -32,7 +32,7 @@ namespace WebSite.Domain.Entities
         public virtual string MetaDescription { get; set; }
 
         [Display(Name = "SEO метатег Keywords")]
-        public virtual string MetaKeywords { get; set; }
+        public virtual string Keywords { get; set; }
 
         [DataType(DataType.Time)]
         public DateTime DateAdded { get; set; }
