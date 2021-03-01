@@ -15,6 +15,7 @@ namespace WebSite.Controllers
         {
             this.dataManager = dataManager;
         }
+
         public IActionResult Index()
         {
             return View(dataManager.TextFields.GetTextFieldByCodeWord("PageIndex"));
