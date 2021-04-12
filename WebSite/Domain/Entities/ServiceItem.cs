@@ -12,7 +12,7 @@ namespace WebSite.Domain.Entities
         [Display(Name = "Название услуг")]
         public override string Title { get; set; }
 
-        [Display(Name = "Краткое поисание услуг")]
+        [Display(Name = "Краткое описание услуг")]
         public override string Subtitle { get; set; }
 
         [Display(Name = "Полное описание услуг")]
